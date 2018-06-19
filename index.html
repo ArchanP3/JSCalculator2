@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <div class="mycalc">
+	<form name="calculator" id="calculator">
+        
+        
+		<input type="text" name="inputwindow" id="inputwindow">
+		<div>
+			<input type="button" id="one" value="1" onclick="takeValue(document.getElementById('one').value)">
+			<input type="button" id="two" value="2" onclick="takeValue(document.getElementById('two').value)">
+			<input type="button" id="three" value="3" onclick="takeValue(document.getElementById('three').value)">
+			<input type="button" id="plus" value="+" onclick="takeValue(document.getElementById('plus').value)">
+	    </div>
+	    <div>
+			<input type="button" id="four" value="4" onclick="takeValue(document.getElementById('four').value)">
+			<input type="button" id="five" value="5" onclick="takeValue(document.getElementById('five').value)">
+			<input type="button" id="six" value="6" onclick="takeValue(document.getElementById('six').value)">
+			<input type="button" id="minus" value="-" onclick="takeValue(document.getElementById('minus').value)">
+		</div>
+		<div>
+			<input type="button" id="seven" value="7" onclick="takeValue(document.getElementById('seven').value)">
+			<input type="button" id="eight" value="8" onclick="takeValue(document.getElementById('eight').value)">
+			<input type="button" id="nine" value="9" onclick="takeValue(document.getElementById('nine').value)">
+			<input type="button" id="by" value="*" onclick="takeValue(document.getElementById('by').value)">
+	    </div>
+	    <div>
+			<input type="button" id="zero" value="0" onclick="takeValue(document.getElementById('zero').value)">
+			<input type="button" id="decimal" value="." onclick="takeValue(document.getElementById('decimal').value)">
+			<input type="button" id="devide" value="/" onclick="takeValue(document.getElementById('devide').value)">
+			<input type="button" id="percent" value="✡" onclick="takeValue(document.getElementById('percent').value)">	
+	    </div>
+	    <div class="results">
+			<input type="button" id="equal" value="=" onclick="calculateResult()">
+			<button type="button" id="clear" value="" onclick="clearInput(document.getElementById('clear').value)">AC</button>
+            <body onload="startTime()">
+                
+     <center><input type="button" id="AUTO" class="bigButton" value="AUTO" onclick="doAutoFlip();">
+             <input type="button" id="STOP" class="bigButton " value="STOP " onclick="stopFlip(); ">
+             </center>
+
+<div id="txt"></div>
+    
+    <center><h1>JS Calculator</h1><center>
+          <center><h3>By Archan Paul</h3><center>
+              <center><h1>★</h1><center>
+              
+      <style>
+      
+body {
+    background-image: -webkit-linear-gradient(top, #7a427a, #0078c2);
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+}
+          
+.bigButton {
+  background: #7a427a;
+  background-image: -webkit-linear-gradient(top, #7a427a, #0078c2);
+  background-image: -moz-linear-gradient(top, #7a427a, #0078c2);
+  background-image: -ms-linear-gradient(top, #7a427a, #0078c2);
+  background-image: -o-linear-gradient(top, #7a427a, #0078c2);
+  background-image: linear-gradient(to bottom, #7a427a, #0078c2);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+          
+body div.mycalc {
+	text-align: center;
+	width: 214px;
+	margin: 0 auto;
+}
+
+div input[type='button'], button {
+	width: 50px;
+	height: 50px;
+	margin: 2px 0;
+}
+
+div input[type="text"] {
+	height: 70px;
+	width: 100%;
+	background-color: #999;
+	color: #fff;
+	padding: 12px 20px;
+    margin-top: 100px;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #777;
+}
+
+div.results input, div.results button {
+	height: 50px;
+	width: 104px;
+}
+
+div.results button {
+	background-color: red;
+	color: #fff;
+	border: 1px solid red;
+}
+
+div.results input {
+	background-color: #fd7202;
+	color: #fff;
+	border: 1px solid #fd7202;
+}
+
+#plus, #minus, #by, #devide, #percent {
+	background-color: green;
+	color: #fff;
+	border: 1px solid green;
+	font-size: 16px;
+}
+      </style>
+	  
+      <script>
+
+function takeValue(x) {
+	document.getElementById('inputwindow').value += x;
+}
+
+function clearInput(y) {
+	document.getElementById('inputwindow').value = y;
+}
+
+function calculateResult() {
+	var result = eval(document.getElementById('inputwindow').value);
+	document.getElementById('inputwindow').value = result;
+}
+          
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+          
+          
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+          
+          var t = 0;
+        var colour = 0;
+        var checkStop = 0;
+        var light = new Array();
+        light[0] = 'black';
+        light[1] = 'white';
+        light[2] = 'red';
+        light[3] = 'blue';
+        light[4] = 'purple';
+        light[5] = 'grey';
+        light[6] = 'carbon red';
+        light[7] = 'Aqua';
+        light[8] = 'green'
+        light[9] = 'pink'
+
+
+        function flip(whichway) {
+            document.body.style.backgroundColor = light[whichway];
+        }
+            function doAutoFlip() {
+            flip(colour);
+            if (colour < light.length) {
+                colour++;
+            } else {
+                colour = 0;
+            }
+
+            t = setTimeout("doAutoFlip()", 40);
+        }
+
+ function stopFlip() {
+            clearTimeout(t);
+            document.body.style.backgroundColor = 'white';
+        }
+          </script>
+                  
